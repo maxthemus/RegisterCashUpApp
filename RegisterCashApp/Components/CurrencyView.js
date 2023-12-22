@@ -1,7 +1,7 @@
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const CurrencyView = ({ name=0.0, value=0.0, add=()=>null, remove=()=>null }) => {
+const CurrencyView = ({ name=0.0, value=0.0, add=()=>null, remove=()=>null, onUpdate=()=>null }) => {
     
     const calculateTotal = (name, value) => {
         const total = (name * value);
@@ -19,9 +19,9 @@ const CurrencyView = ({ name=0.0, value=0.0, add=()=>null, remove=()=>null }) =>
             </View>
           </TouchableOpacity>
         </View>
-        <View style={styles.Updatecountbutton}>
+        <TouchableOpacity style={styles.Updatecountbutton} onPress={() => onUpdate(name)}>
           <Text style={styles.X20}>{value}</Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.Totalframe}>
           <Text style={styles._20}>{calculateTotal(name, value)}</Text>
         </View>

@@ -61,7 +61,7 @@ const RegisterController = () => {
                 const currentValueCount = currencyValueMap.get(currencyValue);
                 if(updatedCount != currentValueCount) {
                     //resetting balance
-                    const resetBalance = registerBalance - (currencyValue * currencyValue);
+                    const resetBalance = parseFloat(registerBalance) - (parseFloat(currencyValue) * parseFloat(currentValueCount));
 
                     setCurrencyValueMap((prevMap) => {
                       return new Map(prevMap).set(
@@ -86,6 +86,7 @@ const RegisterController = () => {
       <RegisterView
         addCurrency={addCurrency}
         removeCurrency={removeCurrency}
+        setCurrency={setCurrency}
         registerValues={currencyValueMap}
       />
     </View>
