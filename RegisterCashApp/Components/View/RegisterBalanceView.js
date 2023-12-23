@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Image, Text, View, ImageBackground } from "react-native"
+import { StyleSheet, Image, Text, View, ImageBackground, Platform } from "react-native"
 
 export default function RegisterBalanceView({value=0.0}) {
 
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     color: "rgba(0,0,0,1)",
     fontSize: 32,
     lineHeight: 32,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'monospace',
     fontWeight: "400",
     textAlign: "center",
   },

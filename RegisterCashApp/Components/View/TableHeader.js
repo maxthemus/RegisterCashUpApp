@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Image, Text, View, ImageBackground } from "react-native"
+import { StyleSheet, Image, Text, View, ImageBackground, Platform } from "react-native"
 
 export default function TableHeader() {
   return (
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     fontSize: 15,
     lineHeight: 15,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'monospace',
     fontWeight: "400",
     textAlign: "center",
   },
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     fontSize: 15,
     lineHeight: 15,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'monospace',
     fontWeight: "400",
     textAlign: "center",
   },
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     fontSize: 15,
     lineHeight: 15,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'monospace',
     fontWeight: "400",
     textAlign: "center",
   },

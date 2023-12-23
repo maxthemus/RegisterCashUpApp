@@ -1,4 +1,4 @@
-import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, Button, StyleSheet, TouchableOpacity, Platform } from 'react-native'
 import React from 'react'
 
 const CurrencyView = ({ name=0.0, value=0.0, add=()=>null, remove=()=>null, onUpdate=()=>null }) => {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     color: "rgba(0,0,0,1)",
     fontSize: 32,
     lineHeight: 32,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'monospace',
     fontWeight: "400",
     textAlign: "center",
     width: 100,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     fontSize: 32,
     lineHeight: 32,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'monospace',
     fontWeight: "400",
     textAlign: "center",
     width: 50,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     color: "rgba(0,0,0,1)",
     fontSize: 32,
     lineHeight: 32,
-    fontFamily: "monospace",
+    fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'monospace',
     fontWeight: "400",
     textAlign: "center",
     width: 100,

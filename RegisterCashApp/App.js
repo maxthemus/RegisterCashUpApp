@@ -6,22 +6,19 @@ import Register from './Models/Register';
 import RegisterController from './Components/RegisterController';
 import RegisterbalanceView from './Components/View/RegisterBalanceView';
 import TableHeader from './Components/View/TableHeader';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import RegisterBalanceScreen from './Components/Screens/RegisterBalanceScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
   return (
-    <View style={styles.container}>
-      <RegisterController />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={RegisterBalanceScreen} options={{ headerTitle: () => null}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-});
