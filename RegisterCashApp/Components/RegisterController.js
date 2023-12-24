@@ -1,20 +1,17 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import RegisterView from './RegisterView';
 import RegisterbalanceView from './View/RegisterBalanceView';
 import RegisterBalanceView from './View/RegisterBalanceView';
 import TableHeader from './View/TableHeader';
 
-const RegisterController = () => {
-    const currencyValues = [0.1, 0.2, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0]; 
-    const [registerBalance, setRegisterBalance] = useState(0.0);
-    const [currencyValueMap, setCurrencyValueMap] = useState(new Map());
+const RegisterController = ({ currencyValues=[0.1, 0.2, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0], registerBalance=0.0, setRegisterBalance=()=>null, currencyValueMap=null, setCurrencyValueMap=()=>null, saveButton=false, onSave=()=>null}) => {
 
     useEffect(() => {
-        //Init the currencyValueMap
-        resetRegister(); 
-    }, [])
-    
+        if (currencyValueMap === null) {
+          resetRegister();
+        }
+    }, []);
 
     //Register methods
     const resetRegister = () => { 
@@ -81,7 +78,14 @@ const RegisterController = () => {
   
   return (
     <View>
-      <RegisterBalanceView value={registerBalance}/>
+      <RegisterBalanceView value={registerBalance} />
+      <View style={styles.saveContainer}>
+        {saveButton ? (
+          <TouchableOpacity style={styles.saveButton} onPress={() => onSave()}>
+            <Text>Save Register</Text>
+          </TouchableOpacity>
+        ) : null}
+      </View>
       <TableHeader />
       <RegisterView
         addCurrency={addCurrency}
@@ -94,3 +98,17 @@ const RegisterController = () => {
 }
 
 export default RegisterController;
+
+const styles = StyleSheet.create({
+  saveButton: {
+    backgroundColor: "red",
+    padding: 10,
+    borderRadius: 20,
+    alignItems: "center",
+    width: "50%"
+  },
+  saveContainer: {
+    backgroundColor: "rgba(78,73,73,1)",
+    alignItems: "center",
+  },
+});

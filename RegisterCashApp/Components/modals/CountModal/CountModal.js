@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 const MAX_VALUE = 20;
 
-const CountModal = ({ onClose=()=>null, onSubmit=()=>null, isOpen=false, currencyValue=0.0, value=0}) => {
+const CountModal = ({ onClose=()=>null, onSubmit=()=>null, isOpen=false, currencyValue=0, value=0}) => {
     const [selectedValue, setSelectedValue] = useState(value)
   
     const printValueComponents = () => {
@@ -35,7 +35,7 @@ const CountModal = ({ onClose=()=>null, onSubmit=()=>null, isOpen=false, currenc
         >
             <View style={styles.modalContainer}>
                 <View style={styles.modalContent}>
-                    <Text style={styles.modalText}>Hello, I'm a modal!</Text>
+                    <Text style={styles.modalText}>Updating ${currencyValue} Count</Text>
 
                     <Picker
                         selectedValue={selectedValue}
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     modalText: {
         fontSize: 18,
         marginBottom: 10,
+        textAlign: "center"
     },
     closeButton: {
         backgroundColor: 'blue',

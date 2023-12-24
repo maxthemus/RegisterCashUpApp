@@ -47,6 +47,7 @@ const RegisterView = ({ addCurrency=()=>null, removeCurrency=()=>null, setCurren
         }
     }
 
+  if(registerValues === null) return null;
   return (
     <View style={styles.container}>
         <CountModal

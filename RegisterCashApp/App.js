@@ -12,6 +12,8 @@ import RegisterBalanceScreen from './Components/Screens/RegisterBalanceScreen';
 import DefaultRegisterScreen from './Components/Screens/DefaultRegisterScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import InfoScreen from './Components/Screens/InfoScreen';
+import AppContext, { AppProvider } from './Context/AppContext';
 
 const Stack = createBottomTabNavigator();
 //const Stack = createMaterialTopTabNavigator();
@@ -19,6 +21,7 @@ const Stack = createBottomTabNavigator();
 export default function App() {
 
   return (
+    <AppProvider>
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Home"
@@ -27,15 +30,20 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={RegisterBalanceScreen}
-            options={{ headerTitle: () => null}}
-
+            options={{ headerTitle: () => null }}
           />
           <Stack.Screen
-            name="Test"
+            name="Default"
             component={DefaultRegisterScreen}
-            options={{ headerTitle: () => null}}
+            options={{ headerTitle: () => null }}
+          />
+          <Stack.Screen
+            name="Info"
+            component={InfoScreen}
+            options={{ headerTitle: () => null }}
           />
         </Stack.Navigator>
       </NavigationContainer>
+    </AppProvider>
   );
 }

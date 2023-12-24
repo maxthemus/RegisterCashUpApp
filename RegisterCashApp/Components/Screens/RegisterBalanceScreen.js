@@ -1,14 +1,29 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import RegisterController from '../RegisterController';
 import { StatusBar } from 'expo-status-bar';
+import AppContext from '../../Context/AppContext';
 
 const RegisterBalanceScreen = () => {
+  const {
+    currencyValues,
+    registerBalance,
+    setRegisterBalance,
+    currencyValueMap,
+    setCurrencyValueMap,
+  } = useContext(AppContext);
+
   return (
-      <View style={styles.container}>
-        <RegisterController />
-        <StatusBar style="auto" />
-      </View>
+    <View style={styles.container}>
+      <RegisterController
+        currencyValues={currencyValues}
+        currencyValueMap={currencyValueMap}
+        setRegisterBalance={setRegisterBalance}
+        registerBalance={registerBalance}
+        setCurrencyValueMap={setCurrencyValueMap}
+      />
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
