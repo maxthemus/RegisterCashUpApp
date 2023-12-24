@@ -14,6 +14,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import InfoScreen from './Components/Screens/InfoScreen';
 import AppContext, { AppProvider } from './Context/AppContext';
+import { Entypo } from '@expo/vector-icons'; 
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const Stack = createBottomTabNavigator();
 //const Stack = createMaterialTopTabNavigator();
@@ -30,17 +32,32 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={RegisterBalanceScreen}
-            options={{ headerTitle: () => null }}
+            options={{
+              headerTitle: () => null,
+              tabBarIcon: ({ color, size }) => (
+                <Entypo name="home" size={size} color={color} />
+              ),
+            }}
           />
           <Stack.Screen
             name="Default"
             component={DefaultRegisterScreen}
-            options={{ headerTitle: () => null }}
+            options={{
+              headerTitle: () => null,
+              tabBarIcon: ({ color, size }) => (
+                <FontAwesome5 name="cash-register" size={size} color={color} />
+              ),
+            }}
           />
           <Stack.Screen
             name="Info"
             component={InfoScreen}
-            options={{ headerTitle: () => null }}
+            options={{
+              headerTitle: () => null,
+              tabBarIcon: ({ color, size }) => (
+                <Entypo name="info" size={size} color={color} />
+              ),
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
