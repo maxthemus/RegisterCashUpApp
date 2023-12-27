@@ -29,6 +29,8 @@ export const AppProvider = ({ children }) => {
           });
           setDefaultRegisterBalance(balance);
         }
+      }).catch(() => {
+        
       });
     }, []);
 

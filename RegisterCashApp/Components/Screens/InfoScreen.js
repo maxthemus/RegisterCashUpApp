@@ -37,11 +37,13 @@ const InfoScreen = () => {
   useEffect(() => {
     const differenceMap = new Map();
 
-    for (const [key, value] of currencyValueMap.entries()) {
-      const defaultValue = defaultCurrencyValueMap.get(key);
+    if (defaultCurrencyValueMap != null) {
+      for (const [key, value] of currencyValueMap.entries()) {
+        const defaultValue = defaultCurrencyValueMap.get(key);
 
-      const difference = defaultValue - value;
-      differenceMap.set(key, difference);
+        const difference = defaultValue - value;
+        differenceMap.set(key, difference);
+      }
     }
     setDifferenceMap(differenceMap);
   }, [currencyValueMap, defaultCurrencyValueMap]);

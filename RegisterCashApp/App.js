@@ -1,24 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import RegisterView from './Components/RegisterView';
-import { useEffect, useRef, useState } from 'react';
-import Register from './Models/Register';
-import RegisterController from './Components/RegisterController';
-import RegisterbalanceView from './Components/View/RegisterBalanceView';
-import TableHeader from './Components/View/TableHeader';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RegisterBalanceScreen from './Components/Screens/RegisterBalanceScreen';
 import DefaultRegisterScreen from './Components/Screens/DefaultRegisterScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import InfoScreen from './Components/Screens/InfoScreen';
-import AppContext, { AppProvider } from './Context/AppContext';
-import { Entypo } from '@expo/vector-icons'; 
-import { FontAwesome5 } from '@expo/vector-icons'; 
+import { AppProvider } from './Context/AppContext';
+import 'react-native-gesture-handler';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Stack = createBottomTabNavigator();
-//const Stack = createMaterialTopTabNavigator();
+
 
 export default function App() {
 
@@ -30,12 +20,12 @@ export default function App() {
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen
-            name="Home"
+            name="home"
             component={RegisterBalanceScreen}
             options={{
               headerTitle: () => null,
               tabBarIcon: ({ color, size }) => (
-                <Entypo name="home" size={size} color={color} />
+                <Ionicons name="home" size={size} color={color} />
               ),
             }}
           />
@@ -45,7 +35,7 @@ export default function App() {
             options={{
               headerTitle: () => null,
               tabBarIcon: ({ color, size }) => (
-                <FontAwesome5 name="cash-register" size={size} color={color} />
+                <Ionicons name="cash-outline" size={size} color={color} />
               ),
             }}
           />
@@ -55,7 +45,7 @@ export default function App() {
             options={{
               headerTitle: () => null,
               tabBarIcon: ({ color, size }) => (
-                <Entypo name="info" size={size} color={color} />
+                <Ionicons name="information-circle-outline" size={size} color={color} />
               ),
             }}
           />

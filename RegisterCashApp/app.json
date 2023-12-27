@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "RegisterCashApp",
+    "name": "CashedUp",
     "slug": "RegisterCashApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/appIconV2.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashV2.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,16 +15,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.maxthemus.RegisterCashApp"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/appIconV2.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.maxthemus.RegisterCashApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0fa1bae0-f2cd-40d0-8d9a-c71efe6d8c63"
+      }
     }
   }
 }
