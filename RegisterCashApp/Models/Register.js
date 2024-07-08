@@ -1,59 +1,53 @@
+import Counter from "./Counter";
 
 class Register {
-    constructor(values) {
-        this.currencyValues = [...values]; //Array of possible values in set currency
-        this.registerBalance = 0.0; 
-        this.registerValueCounter = new Map();
+    constructor(cashValues) {
+        this.avaliableCash = cashValues; //Array of possible cash objects
+        this.cashMap = new Map(); //Map cash objects to Counters
+
+        this.balance = 0.0; 
 
         //Setting up the map 
         this.resetRegister();
-        console.log(this.currencyValues);
     }
 
     //Methods
     resetRegister() { 
-        this.registerBalance = 0.0;
-        this.registerValueCounter.clear();
-        this.currencyValues.forEach((currencyValue) => {
-            this.registerValueCounter.set(currencyValue, 0.0);
+        this.balance = 0.0;
+        this.cashMap.clear();
+        this.avaliableCash.forEach((cashObj) => {
+            this.cashMap.set(cashObj, new Counter(cashObj)); //Setting
         });
     }
 
-    addCurrency(currencyValue) {
-        if(this.currencyValues.includes(currencyValue)) {
-            const currentValue = this.registerValueCounter.get(currencyValue); 
-            this.registerValueCounter.set(currencyValue, currentValue+1);
+    addCurrency(cashObj) {
+        if(!this.avaliableCash.includes(cashObj)) {
+            throw new Error("Currency Not in register");
+        }
 
-            //Updating the register balance
-            this.registerBalance += currencyValue;
+        const cashCounter = this.cashMap.get(cashObj);
+        cashCounter.increment();
 
-            return currentValue+1;
-        } 
-        return false;
+        this.balance += cashObj.getValue();
     }
 
-    removeCurrency(currencyValue) {
-        if(this.currencyValues.includes(currencyValue)) {
-            let currentValue = this.registerValueCounter.get(this.currencyValues);
-            if(currencyValue > 0) {
-                currencyValue--;
-                this.registerValueCounter.set(currencyValue, currentValue);
-
-                //Updating the register balance
-                this.registerBalance -= currencyValue;
-            }
-            return currentValue;
-        } else {
-            return false;
+    removeCurrency(cashObj) {
+        if(!this.avaliableCash.includes(cashObj)) {
+            throw new Error("Currency Not in register");
         }
+
+        const cashCounter = this.cashMap.get(cashObj);
+        cashCounter.decrement();
+
+        this.balance -= cashObj.getValue();
     }
 
     getRegisterBalance() {
-        return this.registerBalance;
+        return this.balance;
     }
 
     getRegisterValues() {
-        return this.currencyValues;
+        return this.cashValues;
     }
 }
 
