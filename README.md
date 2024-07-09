@@ -7,3 +7,6 @@ todo:
 - Create UI
 - Program logic
 
+
+For list of icons goto: [link](https://pictogrammers.com/library/mdi/)
+

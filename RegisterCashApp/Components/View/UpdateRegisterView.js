@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     fontSize: 12,
     lineHeight: 12,
-    fontFamily: Platform.OS === "ios" ? "Cochin" : "monospace",
     fontWeight: "400",
     textAlign: "center",
     width: "100%"
@@ -112,7 +111,6 @@ const styles = StyleSheet.create({
     color: "rgba(0,0,0,1)",
     fontSize: 15,
     lineHeight: 15,
-    fontFamily: Platform.OS === "ios" ? "Cochin" : "monospace",
     fontWeight: "400",
     textAlign: "center",
   },
@@ -123,7 +121,6 @@ const styles = StyleSheet.create({
     color: "rgba(0,0,0,1)",
     fontSize: 15,
     lineHeight: 15,
-    fontFamily: Platform.OS === "ios" ? "Cochin" : "monospace",
     fontWeight: "400",
     textAlign: "center",
   },
